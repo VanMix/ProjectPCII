@@ -6,5 +6,9 @@ public abstract class Unite {
 	
 	public Unite() {	
 	}
+	
+	public void seDeplacer(Point d) {
+		position = d;
+	}
 
 }
