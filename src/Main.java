@@ -14,7 +14,7 @@ public class Main {
         fenetre.setVisible(true);
         fenetre.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        // TEST
+        // TEST TEST
 	}
 
 }
