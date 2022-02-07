@@ -13,9 +13,6 @@ public class Main {
 		fenetre.pack();
         fenetre.setVisible(true);
         fenetre.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        
-        //Test PUSH
-        //
 
 	}
 
