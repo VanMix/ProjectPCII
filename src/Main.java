@@ -15,5 +15,5 @@ public class Main {
         fenetre.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 	}
-// Dsl des futurs problèmes
+// dsl
 }
