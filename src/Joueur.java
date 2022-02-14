@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.Random;
 
+
 public class Joueur {
 	ArrayList<Unite> list = new ArrayList<Unite>();
 	ArrayList<Batiment> listBat = new ArrayList<Batiment>();
