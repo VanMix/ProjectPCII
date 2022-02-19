@@ -38,7 +38,7 @@ public class Ressource
     {
         return this.position;
     }
-};
+}
 
 
 
