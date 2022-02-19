@@ -9,11 +9,11 @@ public class AIPlayer extends Thread{
  //   private Etat etat;
     private Controle control;
 	
-	public AIPlayer(Controle c/*Etat e*/) {
+	public AIPlayer(Controle c) {
 	//	etat = e;
 		control = c;
 		
-		Unite unit1 = new Ouvrier(new Point(1,1));
+		Unite unit1 = new Ouvrier(new Point(0,0));
 		list.add(unit1);
 		
 	//	this.start();
@@ -27,7 +27,7 @@ public class AIPlayer extends Thread{
 				
 				Point p = new Point(0,0);
 				
-				while(!control.getEtat().verifBorne(p)) { // depasse d'une case par rapport à a borne 10, à faire
+				while(!control.getEtat().verifBorne(p)) { // depasse d'une case par rapport ï¿½ a borne 10, ï¿½ faire
                     random = (new Random()).nextInt(100);
 					if(random < 50) {
 						if(random < 25) p = new Point(fourmi.getPos().x - 1, fourmi.getPos().y - 1);
