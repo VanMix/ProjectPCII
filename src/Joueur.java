@@ -2,12 +2,14 @@ import java.util.ArrayList;
 import java.util.Random;
 
 
-public class Joueur {
-	ArrayList<Unite> list = new ArrayList<Unite>();
-	ArrayList<Batiment> listBat = new ArrayList<Batiment>();
-	
+public class Joueur extends Thread {
+	private ArrayList<Unite> list = new ArrayList<Unite>();
+	private ArrayList<Batiment> listBat = new ArrayList<Batiment>();
+	private int nbBois = 0;
+	private int nbNourritures = 0;
+
 	public Joueur() {
-		
+		setListUnite();
 	}
 	
 	public ArrayList<Unite> getListe() {
