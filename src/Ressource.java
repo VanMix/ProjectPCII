@@ -34,6 +34,7 @@ public class Ressource
             tR = typeRessource.nourriture;
     }
 
+
     public Point getPosition()
     {
         return this.position;
