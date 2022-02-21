@@ -26,8 +26,8 @@ public class Etat {
 	}
 	
 	public boolean verifBorne(Point p) {
-	   return p.x <= carte.getLongueur() && p.x > 0 &&
-			   p.y <= carte.getLargeur() && p.y > 0;
+	   return p.x <= carte.getLongueur()-1 && p.x > 0 &&
+			   p.y <= carte.getLargeur()-1 && p.y > 0;
 
 	}
 	
