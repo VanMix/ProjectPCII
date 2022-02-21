@@ -4,7 +4,7 @@ import java.util.Random;
 
 public class AIPlayer extends Thread{
 	ArrayList<Unite> list = new ArrayList<Unite>();
-	ArrayList<Batiment> listBat = new ArrayList<Batiment>();
+	//ArrayList<Batiment> listBat = new ArrayList<Batiment>();
 	
  //   private Etat etat;
     private Controle control;
