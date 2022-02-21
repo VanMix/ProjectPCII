@@ -13,7 +13,6 @@ public class Ouvrier extends Unite{
 	@Override
 	void seDeplacer(Point d) {
 		position = d;
-		
 	}
 
 	@Override

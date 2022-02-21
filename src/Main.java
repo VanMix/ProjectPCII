@@ -17,8 +17,5 @@ public class Main {
         fenetre.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         
         ai.start();
-
-
 	}
-
 }

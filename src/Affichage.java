@@ -31,6 +31,7 @@ public class Affichage extends JPanel{
 			g.drawLine(i*decalage, p1[1] * decalage, i*decalage, p2[1] * decalage);
 			g.drawLine(p1[0]*decalage, i*decalage, p2[0]*decalage,  i * decalage);
 		}*/
+		this.setBackground(new Color(235, 178, 102));
 		for(ArrayList<Point>ligne : etat.getCarte().getGrille()){
 			for(int i = 1; i <= ligne.size(); i++) {
 				Point rot1 = ligne.get(0);
@@ -39,7 +40,7 @@ public class Affichage extends JPanel{
 				g.drawLine(rot1.x * decalage, i * decalage, rot2.x , i * decalage);
 				g.drawLine(i * decalage, rot1.y * decalage, i * decalage, rot2.y * decalage);
 			}
-		}
+
 	//	ArrayList<Unite> aiList = etat.getAI().getUnit();
 		g.setColor(Color.RED);
 		
@@ -48,7 +49,28 @@ public class Affichage extends JPanel{
 			g.drawOval(p.x *decalage + 7, p.y * decalage + 7, 20, 20);
 		}
 
-	} 
+		//Affichage des ressources
+		dessineRessource(g);
+	}
+
+	public void dessineRessource(Graphics g)
+	{
+			for(Ressource r : this.etat.getRessource())
+			{
+				if(r.tR == typeRessource.bois)
+				{
+					g.setColor(Color.BLUE);
+					g.drawOval(r.getPosition().x*this.decalage + 15, r.getPosition().y*this.decalage + 15, 5, 5);
+					g.fillOval(r.getPosition().x*this.decalage + 15, r.getPosition().y*this.decalage + 15, 5, 5);
+				}
+				else
+				{
+					g.setColor(Color.CYAN);
+					g.drawOval(r.getPosition().x*this.decalage + 15, r.getPosition().y*this.decalage + 15, 5, 5);
+					g.fillOval(r.getPosition().x*this.decalage + 15, r.getPosition().y*this.decalage + 15, 5, 5);
+				}
+			}
+	}
 	
 	public int getDecal() {
 		return decalage;
