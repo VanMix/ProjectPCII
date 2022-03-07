@@ -12,7 +12,6 @@ public class Etat {
 
 	public Etat(Affichage affichage) {
 		aff = affichage;
-		
 		joueurs = new ArrayList<Joueur>();
 		initCarte();
 		initRessources();
@@ -37,18 +36,55 @@ public class Etat {
 	public void initRessources()
 	{
 		Random rand = new Random();
-		int nbRessources = rand.nextInt(10) + 1;
+		int nbRessources = rand.nextInt(20) + 10;
+		System.out.println(nbRessources);
 		while(nbRessources != 0)
 		{
 			Ressource temp = new Ressource();
-			this.listRessource.add(temp);
-			nbRessources--;
+			if(!this.listRessource.isEmpty())
+			{
+				for(Ressource res : this.listRessource)
+				{
+					if(temp.getPosition().x == res.getPosition().x && temp.getPosition().y == res.getPosition().y)
+					{
+						break;
+					}
+				}
+				this.listRessource.add(temp);
+				nbRessources--;
+			}
+			else
+			{
+				this.listRessource.add(temp);
+				nbRessources--;
+			}
 		}
+		//System.out.println(this.listRessource.size());
+		// ajout de ressource tout les 2 secs
+		/*new Thread(() ->
+		{
+			while(true)
+			{
+				if(this.listRessource.size() < 30)
+				{
+					Ressource r = new Ressource();
+					this.listRessource.add(r);
+				}
+				try
+				{
+					Thread.sleep(3000);
+				} catch(Exception e) {
+					e.printStackTrace();
+				}
+			}
+		}).start();*/
 	}
+
 	public ArrayList<Ressource> getRessource()
 	{
 		return this.listRessource;
 	}
+
 	public AIPlayer getAI() {
 		return ordi;
 	}
