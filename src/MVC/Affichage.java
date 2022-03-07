@@ -1,3 +1,9 @@
+package MVC;
+
+import Environnement.Ressource;
+import Environnement.typeRessource;
+import Unites.Unite;
+
 import java.awt.*;
 import java.util.ArrayList;
 
@@ -9,7 +15,7 @@ public class Affichage extends JPanel{
 	private Etat etat = new Etat(this);
 	private final int decalage = 35;
 	
-	private ArrayList<Unite> aiList = new ArrayList<Unite>();
+	private ArrayList<Unite> aiList = new ArrayList<>();
 
 	public Affichage() {
 		this.setPreferredSize(new Dimension(largeur, hauteur));
@@ -24,7 +30,7 @@ public class Affichage extends JPanel{
 		graphs.translate(-175, 150);
 
 
-		//Affichage des ressources
+		//MVC.Affichage des ressources
 		dessineRessource(g);
 
 		/*for(int i = 1; i <= (l.size())/10; i++) {
@@ -45,7 +51,7 @@ public class Affichage extends JPanel{
 				g.drawLine(i * decalage, rot1.y * decalage, i * decalage, rot2.y * decalage);
 			}
 
-			//	ArrayList<Unite> aiList = etat.getAI().getUnit();
+			//	ArrayList<Unites.Unite> aiList = etat.getAI().getUnit();
 			g.setColor(Color.RED);
 
 			for (Unite u : aiList) {
@@ -58,15 +64,13 @@ public class Affichage extends JPanel{
 		public void dessineRessource (Graphics g)
 		{
 			for (Ressource r : this.etat.getRessource()) {
-				if (r.tR == typeRessource.bois) {
+				if (r.gettR() == typeRessource.bois) {
 					g.setColor(Color.BLUE);
-					g.drawOval(r.getPosition().x * this.decalage + 15, r.getPosition().y * this.decalage + 15, 5, 5);
-					g.fillOval(r.getPosition().x * this.decalage + 15, r.getPosition().y * this.decalage + 15, 5, 5);
 				} else {
 					g.setColor(Color.CYAN);
-					g.drawOval(r.getPosition().x * this.decalage + 15, r.getPosition().y * this.decalage + 15, 5, 5);
-					g.fillOval(r.getPosition().x * this.decalage + 15, r.getPosition().y * this.decalage + 15, 5, 5);
 				}
+				g.drawOval(r.getPosition().x * this.decalage + 15, r.getPosition().y * this.decalage + 15, 5, 5);
+				g.fillOval(r.getPosition().x * this.decalage + 15, r.getPosition().y * this.decalage + 15, 5, 5);
 			}
 		}
 

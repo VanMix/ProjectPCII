@@ -1,16 +1,12 @@
-import javax.swing.text.Position;
+package Environnement;
+
 import java.awt.*;
 import java.util.Random;
 
-enum typeRessource
-{
-    bois, nourriture
-}
-
 public class Ressource
 {
-    protected typeRessource tR;
-    private Point position = new Point();
+    private typeRessource tR;
+    private final Point position = new Point();
 
     public Ressource()
     {
@@ -37,6 +33,10 @@ public class Ressource
     public Point getPosition()
     {
         return this.position;
+    }
+
+    public typeRessource gettR() {
+        return tR;
     }
 }
 

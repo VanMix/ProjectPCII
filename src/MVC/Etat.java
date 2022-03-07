@@ -1,3 +1,11 @@
+package MVC;
+
+import Environnement.Carte;
+import Environnement.Ressource;
+import Joueurs.AIPlayer;
+import Joueurs.Joueur;
+import MVC.Affichage;
+
 import java.awt.Point;
 import java.util.ArrayList;
 import java.util.Random;
@@ -7,7 +15,7 @@ public class Etat {
 	private ArrayList<Joueur> joueurs;
 	private int nbJoueurs = 2;
 	private Affichage aff;
-	private AIPlayer ordi /*= new AIPlayer(this) */;
+	private AIPlayer ordi /*= new Joueurs.AIPlayer(this) */;
 	private ArrayList<Ressource> listRessource = new ArrayList<Ressource>();
 
 	public Etat(Affichage affichage) {

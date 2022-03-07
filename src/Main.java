@@ -1,4 +1,11 @@
+import Joueurs.AIPlayer;
+import MVC.Affichage;
+import MVC.Controle;
+import MVC.Etat;
+
 import javax.swing.JFrame;
+import java.sql.Array;
+import java.util.ArrayList;
 
 public class Main {
 
