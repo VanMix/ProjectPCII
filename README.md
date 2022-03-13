@@ -39,3 +39,77 @@ La méthode initRessource() va prendre un entier entre 1 et 10 de maniéré alé
 La méthode dessineRessource() va prendre chaque ressource de listRessources et affiche un petit cercle rempli en bleu, si la ressource est de type « bois » sinon en cyan pour le type de ressource « nourriture ». 
 
 ##Partie réservée pour Charlies
+###Fonctionnalités implémentées au cours de ce projet
+    - Pivotement de la grille de jeu
+    - Implémentation des bâtiments du jeu
+    - Ajout de méthodes permettant de lier les bâtiments au joueur
+    - Implémentation de la classe Reine qui est l'élément premier de notre jeu
+
+###Plan de développement
+    Temps de : 
+        1.2. Réflexion et documentation, 1h
+        3. Conception, 3-4h tout en effectuant des tests unitaires pour vérifier que tout est bien implémenté
+
+###Conception
+Afin de pouvoir créer nos premières unités (qui sont les ouvrières), il nous fallait générer une unité qui est la reine des Fourmis.
+Ainsi, tou au cours de la partie, ce sera cette unité qui se chargera de créer nos ouvrières
+LA classe Reine n'est pas composé de beaucoup d'éléments. En effet, dans notre jeu, la Reine des fourmis se chargera 
+uniquement de générer nos fourmis ouvrières, donc il a été implémenté une méthode createOuvriere() qui se chargera de : 
+
+    1)créer une ouvrière en un lapse de temps (si le joueur dispose d'assez de ressources pour la générer
+    2)enlever le coût nécéssaire pour créer l'ouvrière des ressources du joueur
+    3)affecter la fourmi comme étant une unité du joueur qui l'a conçu
+
+**Remarque :**
+    Afin d'avoir une meilleure lisibilité du code et des classes, j'ai pris l'initiative de réorganiser nos classes et 
+de les insérer dans différents packages en fonction de leur rôle dans notre jeu.
+Il y aura donc 5 packages :
+
+    -Batiments (peut être réunis avec le package environnement)
+    -Environnement
+    -Joueurs
+    -MVC
+    -Unites
+
+Concernant la suite des fonctionnalités implémentés dans le projet, il y a celles qui concernent les bâtiments de notre jeu.
+En effet, au cours du jeu, nous pourrons implémenter différents types de bâtiments, nous permettant de générer différentes unités (et non plus uniquement des ouvrières).
+C'est pour cela, que j'ai commencé par implémenter les bâtiments principaux de notre jeu, à savoir :
+    
+    - La fourmilière(lieu de vie des fourmis et qui servira de base pour chaque joueur)
+    - La caserne(bâtiment servant à créer différentes troupes de fourmis)
+
+####La fourmilière
+Véritable forteresse pour les fourmis, la fourmilière joue le rôle de base pour nos fourmis.
+En effet, c'est là où sont stockés les ressources récoltées par nos ouvrières, ainsi que la reiine (qui servira à créer nos ouvrières)
+Afin que cette fourmilière ne soit pas implémenté n'importe comment, j'ai décidé de l'associer à 3 éléments:
+
+* la grille de jeu, car elle y sera implémenté graphiquement
+
+* le joueur, car chaque joueur aura accès à sa propre fourmilière et non pas celle de l'adversaire 
+
+* Une Reine, car elle y sera toujours présente (même si sa tâche au final se résume à créer des fourmis)
+
+
+Dans cette classe, plusieurs méthodes utiles au développement du jeu ont étés implémentées:
+* addFourmiAll(), qui se chargera d'ajouter la fourmi crée par la reine non seulement au joueur mais aussi à la fourmilière où elle a été crée
+* remFourmiBat(), qui lorsqu'une fourmi sera déployé sur la grille de jeu quittera la fourmilière et sera associé à la carte
+* createOuvriere(), qui sera associé au clic du joueur lorsqu'il appuiera sur la fourmilière, il pourra décider de quand créer la fourmi
+* deploiementUnite(), qui en fonction du joueur, déploiera un certain nombre d'unité sur la grille de jeu
+
+Pour l'instant, il n'y a que les ouvrières de disponible sur notre jeu (07/03), par la suite, il s'agira de créer d'autres types de fourmis dans un bâtiment différent, La Caserne
+
+####La Caserne
+En ce qui concerne ce nouveau bâtiment, il s'agit de créer autre chose que des fourmis basique, on à décider de créer des fourmis pouvant être envoyé en même temps 
+que les ouvrières (comme si c'était leurs gardes du corps) afin que ces dernières puissent être protégés lors de leur récolte de ressources
+
+Là aussi, la classe Caserne est créé avec différents attributs :
+* Joueur, car tout bâtiment construit sur la map, doit être relié à un joueur
+* Timer, qui servira de chronomètre afin de créer nos unités en fonction de ce chrono(utilisation de la classe Timer)
+
+Encore une fois, pour le moment, notre caserne ne peut générer que des ouvrières, mais il arrivera très bientôt d'autres unités de combat.
+
+###Tâches restantes à effectuer :
+- [ ] Implémentation graphique des unités deployés
+- [ ] Implémentation graphique des bâtiments
+- [ ] Gestion des actions possibles du joueur vis-à-vis des unités et des bâtiments
+- [ ] Création d'autres unités de combats
