@@ -108,7 +108,7 @@ Là aussi, la classe Caserne est créé avec différents attributs :
 
 Encore une fois, pour le moment, notre caserne ne peut générer que des ouvrières, mais il arrivera très bientôt d'autres unités de combat.
 
-###Tâches restantes à effectuer :
+### Tâches restantes à effectuer :
 - [ ] Implémentation graphique des unités deployés
 - [ ] Implémentation graphique des bâtiments
 - [ ] Gestion des actions possibles du joueur vis-à-vis des unités et des bâtiments
