@@ -113,3 +113,5 @@ Encore une fois, pour le moment, notre caserne ne peut générer que des ouvriè
 - [ ] Implémentation graphique des bâtiments
 - [ ] Gestion des actions possibles du joueur vis-à-vis des unités et des bâtiments
 - [ ] Création d'autres unités de combats
+- [X] Ajout sans partie graphique d'une Caserne (test unitaire)
+- [X] Ajout sans partie graphique d'une Fourmilière (test unitaire)
