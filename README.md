@@ -38,19 +38,19 @@ La méthode initRessource() va prendre un entier entre 1 et 10 de maniéré alé
 
 La méthode dessineRessource() va prendre chaque ressource de listRessources et affiche un petit cercle rempli en bleu, si la ressource est de type « bois » sinon en cyan pour le type de ressource « nourriture ». 
 
-##Partie réservée pour Charlies
-###Fonctionnalités implémentées au cours de ce projet
+## Partie réservée pour Charlies
+### Fonctionnalités implémentées au cours de ce projet
     - Pivotement de la grille de jeu
     - Implémentation des bâtiments du jeu
     - Ajout de méthodes permettant de lier les bâtiments au joueur
     - Implémentation de la classe Reine qui est l'élément premier de notre jeu
 
-###Plan de développement
+### Plan de développement
     Temps de : 
         1.2. Réflexion et documentation, 1h
         3. Conception, 3-4h tout en effectuant des tests unitaires pour vérifier que tout est bien implémenté
 
-###Conception
+### Conception
 Afin de pouvoir créer nos premières unités (qui sont les ouvrières), il nous fallait générer une unité qui est la reine des Fourmis.
 Ainsi, tou au cours de la partie, ce sera cette unité qui se chargera de créer nos ouvrières
 LA classe Reine n'est pas composé de beaucoup d'éléments. En effet, dans notre jeu, la Reine des fourmis se chargera 
@@ -78,7 +78,7 @@ C'est pour cela, que j'ai commencé par implémenter les bâtiments principaux d
     - La fourmilière(lieu de vie des fourmis et qui servira de base pour chaque joueur)
     - La caserne(bâtiment servant à créer différentes troupes de fourmis)
 
-####La fourmilière
+#### La fourmilière
 Véritable forteresse pour les fourmis, la fourmilière joue le rôle de base pour nos fourmis.
 En effet, c'est là où sont stockés les ressources récoltées par nos ouvrières, ainsi que la reiine (qui servira à créer nos ouvrières)
 Afin que cette fourmilière ne soit pas implémenté n'importe comment, j'ai décidé de l'associer à 3 éléments:
@@ -98,7 +98,7 @@ Dans cette classe, plusieurs méthodes utiles au développement du jeu ont été
 
 Pour l'instant, il n'y a que les ouvrières de disponible sur notre jeu (07/03), par la suite, il s'agira de créer d'autres types de fourmis dans un bâtiment différent, La Caserne
 
-####La Caserne
+#### La Caserne
 En ce qui concerne ce nouveau bâtiment, il s'agit de créer autre chose que des fourmis basique, on à décider de créer des fourmis pouvant être envoyé en même temps 
 que les ouvrières (comme si c'était leurs gardes du corps) afin que ces dernières puissent être protégés lors de leur récolte de ressources
 
