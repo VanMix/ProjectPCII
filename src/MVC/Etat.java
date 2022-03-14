@@ -16,14 +16,14 @@ public class Etat {
 	private Carte carte = new Carte();
 	private ArrayList<Joueur> joueurs;
 	private Affichage aff;
-	private Plateau map;
 	private int nbJoueurs = 2;
 	private AIPlayer ordi /*= new Joueurs.AIPlayer(this) */;
 	private ArrayList<Ressource> listRessource = new ArrayList<>();
 	private Timer timer = new Timer();
 	private int tempspassee = 0;
 
-	public Etat() {
+	public Etat(Affichage a) {
+		aff = a;
 		joueurs = new ArrayList<Joueur>();
 		Joueur j1 = new Joueur();
 		joueurs.add(j1);
@@ -36,9 +36,6 @@ public class Etat {
 		return joueurs;
 	}
 
-	public void addPlateau(Plateau p){
-		map = p;
-	}
 	public void initCarte() {
 		for(Joueur j : joueurs) {
 			carte.getListeUnite().add(j.getUnites());
@@ -63,7 +60,7 @@ public class Etat {
 	{
 		Random rand = new Random();
 		int nbRessources = rand.nextInt(20) + 10;
-		System.out.println(nbRessources);
+		//System.out.println(nbRessources);
 		while(nbRessources != 0)
 		{
 			Ressource temp = new Ressource();
