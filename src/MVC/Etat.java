@@ -1,36 +1,54 @@
 package MVC;
 
+import Batiments.Caserne;
 import Environnement.Carte;
 import Environnement.Ressource;
 import Joueurs.AIPlayer;
 import Joueurs.Joueur;
-import MVC.Affichage;
 
 import java.awt.Point;
 import java.util.ArrayList;
 import java.util.Random;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class Etat {
 	private Carte carte = new Carte();
 	private ArrayList<Joueur> joueurs;
-	private int nbJoueurs = 2;
 	private Affichage aff;
+	private Plateau map;
+	private int nbJoueurs = 2;
 	private AIPlayer ordi /*= new Joueurs.AIPlayer(this) */;
-	private ArrayList<Ressource> listRessource = new ArrayList<Ressource>();
+	private ArrayList<Ressource> listRessource = new ArrayList<>();
+	private Timer timer = new Timer();
+	private int tempspassee = 0;
 
-	public Etat(Affichage affichage) {
-		aff = affichage;
+	public Etat() {
 		joueurs = new ArrayList<Joueur>();
+		Joueur j1 = new Joueur();
+		joueurs.add(j1);
+
 		initCarte();
 		initRessources();
 	}
-	
+
+	public ArrayList<Joueur> getJoueurs() {
+		return joueurs;
+	}
+
+	public void addPlateau(Plateau p){
+		map = p;
+	}
 	public void initCarte() {
 		for(Joueur j : joueurs) {
-			carte.getListeUnite().add(j.getListe());
+			carte.getListeUnite().add(j.getUnites());
 		}
 	}
-	
+
+	//public void initPlayer(Joueur player){
+	//	joueur = player;
+	//}
+
 	public Carte getCarte() {
 		return carte;
 	}
@@ -96,9 +114,18 @@ public class Etat {
 	public AIPlayer getAI() {
 		return ordi;
 	}
-	
-	public void move() {
-		aff.repaint();
+
+	public void createCaserne(Joueur joueur, Point pos){
+		int tempsConstruc = 10;
+		timer.schedule(new TimerTask() {
+			@Override
+			public void run() {
+				tempspassee++;
+
+			}
+		}, 1000, 1000);
+		if(tempspassee == tempsConstruc)
+			joueur.addBat(new Caserne(pos, joueur));
 	}
 
 }

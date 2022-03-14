@@ -4,26 +4,36 @@ import Batiments.Batiment;
 import Unites.Ouvrier;
 import Unites.Unite;
 
+import java.awt.*;
 import java.util.ArrayList;
 
 
-public class Joueur extends Thread {
-	private ArrayList<Unite> list = new ArrayList<Unite>();
-	private ArrayList<Batiment> listBat = new ArrayList<Batiment>();
+public class Joueur {
+	private ArrayList<Unite> listUnit = new ArrayList<>();
+	private ArrayList<Batiment> listBat = new ArrayList<>();
 	private int nbBois;
 	private int nbNourritures;
 
 	public Joueur() {
 		nbBois = 100;
 		nbNourritures = 100;
+		listUnit.add(new Ouvrier(new Point(1, 9)));
 	}
 	
-	public ArrayList<Unite> getListe() {
-		return list;
+	public ArrayList<Unite> getUnites() {
+		return listUnit;
 	}
-	
+
+	public ArrayList<Batiment> getListBat() {
+		return listBat;
+	}
+
+	public void addBat(Batiment bat) {
+		listBat.add(bat);
+	}
+
 	public void addUnite(Unite unit) {
-		list.add(unit);
+		listUnit.add(unit);
 	}
 
 	public int getNbBois() {
@@ -44,7 +54,7 @@ public class Joueur extends Thread {
 
 	public ArrayList<Ouvrier> getOuvrieres(){
 		ArrayList<Ouvrier> res = new ArrayList<>();
-		for(Unite unit : list)
+		for(Unite unit : listUnit)
 			if(unit instanceof Ouvrier)
 				res.add((Ouvrier) unit);
 		return res;

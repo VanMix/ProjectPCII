@@ -1,25 +1,47 @@
 package MVC;
 
-public class Controle {
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+
+public class Controle extends JPanel implements MouseListener {
 	private Etat etat;
-	private Affichage aff;
-	
-	public Controle(Etat e, Affichage a) {
+
+	public Controle(Etat e, int x, int y) {
 		etat = e;
-		aff = a;
-	}
-	
-	public void repaint() {
-		etat.move();
+		setPreferredSize(new Dimension(x, y));
+		addMouseListener(this);
+		setBackground(Color.WHITE);
 	}
 	
 	
 	public Etat getEtat() {
 		return etat;
 	}
-	
-	public Affichage getAff() {
-		return aff;
+
+	@Override
+	public void mouseClicked(MouseEvent e) {
+		//etat.createCaserne(etat.getJoueurs(), new Point(e.getX(), e.getY()));
 	}
 
+	@Override
+	public void mousePressed(MouseEvent e) {
+
+	}
+
+	@Override
+	public void mouseReleased(MouseEvent e) {
+
+	}
+
+	@Override
+	public void mouseEntered(MouseEvent e) {
+
+	}
+
+	@Override
+	public void mouseExited(MouseEvent e) {
+
+	}
 }

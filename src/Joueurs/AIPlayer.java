@@ -24,7 +24,7 @@ public class AIPlayer extends Thread{
 		
 	//	this.start();
 	}
-	
+	/*
 	@Override
 	public void  run() {
 		while(true) {
@@ -55,7 +55,7 @@ public class AIPlayer extends Thread{
 				e.printStackTrace();
 			}
 		}
-	}
+	}*/
 	
 	public  ArrayList<Unite>getUnit() {
 		return list;

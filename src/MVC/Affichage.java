@@ -4,23 +4,26 @@ import Environnement.Ressource;
 import Environnement.typeRessource;
 import Unites.Unite;
 
-import java.awt.*;
 import java.util.ArrayList;
 
-import javax.swing.JPanel;
+import javax.imageio.ImageIO;
+import javax.swing.*;
 
 public class Affichage extends JPanel{
 	private final int hauteur = 500;
 	private final int largeur = 800;
-	private Etat etat = new Etat(this);
+	private final int taille = 10;
+	//private Etat etat = new Etat(this);
 	private final int decalage = 35;
+
+	private Plateau map;
 	
 	private ArrayList<Unite> aiList = new ArrayList<>();
 
 	public Affichage() {
-		this.setPreferredSize(new Dimension(largeur, hauteur));
 	}
 
+/*
 	@Override
 	public void paint(Graphics g) {
 		super.paint(g);
@@ -41,6 +44,7 @@ public class Affichage extends JPanel{
 			g.drawLine(i*decalage, p1[1] * decalage, i*decalage, p2[1] * decalage);
 			g.drawLine(p1[0]*decalage, i*decalage, p2[0]*decalage,  i * decalage);
 		}*/
+	/*
 		this.setBackground(new Color(235, 178, 102));
 		for (ArrayList<Point> ligne : etat.getCarte().getGrille()) {
 			for (int i = 1; i <= ligne.size(); i++) {
@@ -80,6 +84,16 @@ public class Affichage extends JPanel{
 	
 	public void setAIList(ArrayList<Unite> l) {
 		aiList = l;
-	}
-
+	}*/
+/*
+	public void drawCaserne(Graphics g) throws IOException {
+		JFrame f = new JFrame("");
+		this.setBounds(50, 50, 50, 50);
+		BufferedImage img = ImageIO.read(new File("Caserne.jpg"));
+		JLabel pic = new JLabel(new ImageIcon(img));
+		this.add(pic);
+		f.setSize(50, 50);
+		f.setLayout(null);
+		f.setVisible(true);
+	}*/
 }
