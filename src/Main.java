@@ -10,11 +10,9 @@ public class Main {
 	public static void main(String[] args) {
        Fenetre fenetre = new Fenetre("Main");
 
-		//Affichage affichage = new Affichage();
-		Etat etat = new Etat();
-		Plateau map = new Plateau(10, etat);
-		etat.addPlateau(map);
-		fenetre.ajouteElement(map);
+		Affichage affichage = new Affichage(10);
+		Etat etat = new Etat(affichage);
+		fenetre.ajouteElement(affichage);
 		fenetre.dessineFenetre();
         
 	   //ai.start();

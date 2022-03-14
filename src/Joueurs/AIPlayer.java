@@ -45,7 +45,7 @@ public class AIPlayer extends Thread{
 					}
 				}
 				fourmi.seDeplacer(p); 
-				System.out.println(p.x + " " + p.y);
+				//System.out.println(p.x + " " + p.y);
 			}
             control.getAff().setAIList(list);
 			control.getEtat().move();

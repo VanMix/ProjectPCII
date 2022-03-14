@@ -15,14 +15,14 @@ public class Ressource
 
     public void initialiseRessources()
     {
+        int xtmp;
+        int ytmp;
         Random rand = new Random();
-        int xtmp = rand.nextInt(9) + 1;
-        int ytmp = rand.nextInt(9) + 1;
-        while ((xtmp == 1 && ytmp == 9) || (xtmp == 9 && ytmp == 1))
+        do
         {
             xtmp = rand.nextInt(9) + 1;
             ytmp = rand.nextInt(9) + 1;
-        }
+        } while ((xtmp == 1 && ytmp == 9) || (xtmp == 9 && ytmp == 1));
         this.position.setLocation(xtmp, ytmp);
         if (rand.nextInt(2) == 0)
             tR = typeRessource.bois;

@@ -9,18 +9,27 @@ import java.util.ArrayList;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 
-public class Affichage extends JPanel{
+public class Affichage extends Grille{
 	private final int hauteur = 500;
 	private final int largeur = 800;
-	private final int taille = 10;
-	//private Etat etat = new Etat(this);
+	private Etat etat = new Etat(this);
 	private final int decalage = 35;
 
-	private Plateau map;
+	// Attributs : taille et tableau de cases
+	private Case[][] plateau;
 	
 	private ArrayList<Unite> aiList = new ArrayList<>();
 
-	public Affichage() {
+	public Affichage(int taille) {
+		super(taille, taille);
+		this.plateau = new Case[taille][taille];
+
+		for(int x = 0; x < plateau.length; x++){
+			for(int y = 0; y < plateau[x].length; y++){
+				this.plateau[x][y] = new Case(this, etat);
+				ajouteElement(this.plateau[x][y]);
+			}
+		}
 	}
 
 /*
@@ -67,7 +76,9 @@ public class Affichage extends JPanel{
 	}
 		public void dessineRessource (Graphics g)
 		{
+			System.out.print(this.etat.getRessource().size());
 			for (Ressource r : this.etat.getRessource()) {
+				//System.out.println(r.getPosition().x +" "+ r.getPosition().y);
 				if (r.gettR() == typeRessource.bois) {
 					g.setColor(Color.BLUE);
 				} else {

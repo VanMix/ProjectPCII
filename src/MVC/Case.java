@@ -6,7 +6,7 @@ public class Case extends ZoneCliquable {
 
     private boolean occupee = false;
     // Constructeur
-    public Case(Plateau plateau, Etat e) {
+    public Case(Affichage plateau, Etat e) {
         // Initialisation d'une case cliquable, de dimensions 40*40 pixels.
         super(e,40, 40);
     }
