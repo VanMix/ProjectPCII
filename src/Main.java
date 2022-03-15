@@ -1,21 +1,20 @@
+import Joueurs.AIPlayer;
+import Joueurs.Joueur;
+import MVC.*;
+
 import javax.swing.JFrame;
 
 public class Main {
+	private static int temps = 0;
 
 	public static void main(String[] args) {
-       JFrame fenetre = new JFrame("Main");
-       
-		Affichage affichage = new Affichage();
+       Fenetre fenetre = new Fenetre("Main");
+
+		Affichage affichage = new Affichage(10);
 		Etat etat = new Etat(affichage);
-		Controle control = new Controle(etat, affichage);
-		AIPlayer ai = new AIPlayer(control);
-		
-		fenetre.add(affichage);
-		
-		fenetre.pack();
-        fenetre.setVisible(true);
-        fenetre.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		fenetre.ajouteElement(affichage);
+		fenetre.dessineFenetre();
         
-        ai.start();
+	   //ai.start();
 	}
 }
