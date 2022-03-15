@@ -1,7 +1,7 @@
 # ProjectPCII 
 #### README complété au fur et à mesure par les membres du groupe.
 
-##Partie réservée pour Thomas
+## Partie réservée pour Thomas
 
 Fonctionnalités à implémenter pour la suite:
 Evènement quand un joueur clique sur une de ses unités pour pour déclencher un mécanisme qui permet d'abord son déplacement puis par la suite différentes actions selon le type de l'unité.
@@ -15,7 +15,7 @@ La méthode principale de cette classe est Run(), pour le moment elle est défin
 pour chaque unité de l'AI, on génère un nouveau point alétoire (on utilise une valeur et selon sa valeur, cela définie un déplacement)  qui se situe autour de l'unité, vers lequel l'unité va se déplacer, si la nouvelle case est dehors des bornes alors on recommence le processus.
 Et entre chaque déplacement il y a 2 secondes. L'ensemble des méthodes sont simplement des getters et des setters pour simplifier l'accès aux éléments de L'AI.
 
-##Partie réservée pour Arsène
+## Partie réservée pour Arsène
 
 Fonctionnalités implémenter :
 
