@@ -1,14 +1,11 @@
 package MVC;
 
 import Environnement.Ressource;
-import Environnement.typeRessource;
 import Unites.Unite;
 
 import java.awt.*;
 import java.util.ArrayList;
 
-import javax.imageio.ImageIO;
-import javax.swing.*;
 
 public class Affichage extends Grille{
 	private final int hauteur = 500;
@@ -44,6 +41,15 @@ public class Affichage extends Grille{
 			System.out.println("x = "+r.getPosition().x+" "+"y = "+r.getPosition().y);
 			this.plateau[r.getPosition().x][r.getPosition().y].setRessource(r);
 		}
+	}
+
+	public Case[][] getPlateau() {
+		return plateau;
+	}
+
+	public void setCase(Point pos){
+		plateau[pos.x][pos.y] = new Case(etat);
+		ajouteElement(plateau[pos.x][pos.y]);
 	}
 /*
 	@Override
@@ -91,16 +97,5 @@ public class Affichage extends Grille{
 	
 	public void setAIList(ArrayList<Unite> l) {
 		aiList = l;
-	}*/
-/*
-	public void drawCaserne(Graphics g) throws IOException {
-		JFrame f = new JFrame("");
-		this.setBounds(50, 50, 50, 50);
-		BufferedImage img = ImageIO.read(new File("Caserne.jpg"));
-		JLabel pic = new JLabel(new ImageIcon(img));
-		this.add(pic);
-		f.setSize(50, 50);
-		f.setLayout(null);
-		f.setVisible(true);
 	}*/
 }

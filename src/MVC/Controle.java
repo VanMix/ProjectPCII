@@ -22,7 +22,7 @@ public class Controle extends JPanel implements MouseListener {
 
 	@Override
 	public void mouseClicked(MouseEvent e) {
-		//etat.createCaserne(etat.getJoueurs(), new Point(e.getX(), e.getY()));
+		//etat.createCaserne(etat.getJoueurs().get(0), new Point(e.getPoint().x, e.getPoint().y));
 	}
 
 	@Override

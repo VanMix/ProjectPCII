@@ -1,13 +1,12 @@
 package MVC;
 
+import javax.swing.*;
 import Environnement.Ressource;
 import Environnement.typeRessource;
 
 import javax.imageio.ImageIO;
-import javax.swing.*;
 import javax.swing.border.Border;
 import java.awt.*;
-import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 
@@ -31,7 +30,6 @@ public class Case extends ZoneCliquable {
         //affichage graphique des ressources
         if(this.occupeeRessource)
             drawRessource(g);
-
     }
     // Permet de tester si une case est occupée.
     public boolean estOccupee() { return this.occupeeRessource; }
@@ -39,14 +37,10 @@ public class Case extends ZoneCliquable {
     /**
      * Methode pour effectuer l'affichage graphique des ressources.
      */
-    public void drawRessource(Graphics g)
-    {
-        //this.repaint();
-        //this.setBackground(Color.lightGray);
-        JLabel labelM = null;
+    public void drawRessource(Graphics g) {
         try {
-            Image imageMiel = ImageIO.read(new File("Ressources/miel.jpg"));
-            Image imageBois = ImageIO.read(new File("Ressources/Ressource.png"));
+            Image imageMiel = ImageIO.read(new File("src/Ressources/miel.jpg"));
+            Image imageBois = ImageIO.read(new File("src/Ressources/Ressource.png"));
 
             if (this.ressource.gettR() == typeRessource.bois)
                 g.drawImage(imageBois, 0 , 0, 474/11, 288/8, this);

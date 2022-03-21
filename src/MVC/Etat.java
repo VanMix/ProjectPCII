@@ -27,7 +27,6 @@ public class Etat {
 		joueurs = new ArrayList<Joueur>();
 		Joueur j1 = new Joueur();
 		joueurs.add(j1);
-
 		initCarte();
 		initRessources();
 	}
@@ -56,17 +55,14 @@ public class Etat {
 
 	}
 
-	public void initRessources()
-	{
+	public void initRessources() {
 		Random rand = new Random();
 		int nbRessources = rand.nextInt(40) + 20;
 		System.out.println("Nb ressources qu'on souhaite initialiser : "+nbRessources);
-		while(nbRessources != 0)
-		{
+		while(nbRessources != 0) {
 			boolean tempB = true;
 			Ressource temp = new Ressource();
-			if(!this.listRessource.isEmpty())
-			{
+			if(!this.listRessource.isEmpty()) {
 				for(Ressource res : this.listRessource)
 				{
 					if(temp.getPosition().x == res.getPosition().x && temp.getPosition().y == res.getPosition().y)
@@ -79,6 +75,7 @@ public class Etat {
 			if(tempB)
 			{
 				this.listRessource.add(temp);
+
 				nbRessources--;
 			}
 
@@ -118,7 +115,7 @@ public class Etat {
 		return ordi;
 	}
 
-	public void createCaserne(Joueur joueur, Point pos){
+	public void createCaserne(Joueur joueur, Point pos) {
 		int tempsConstruc = 10;
 		timer.schedule(new TimerTask() {
 			@Override
@@ -127,8 +124,11 @@ public class Etat {
 
 			}
 		}, 1000, 1000);
-		if(tempspassee == tempsConstruc)
-			joueur.addBat(new Caserne(pos, joueur));
+		if (tempspassee == tempsConstruc) {
+			joueur.addBat(new Caserne(pos, carte, joueur));
+			timer.cancel();
+			tempspassee = 0;
+		}
 	}
 
 }
