@@ -20,9 +20,9 @@ public class Ressource
         Random rand = new Random();
         do
         {
-            xtmp = rand.nextInt(9) + 1;
-            ytmp = rand.nextInt(9) + 1;
-        } while ((xtmp == 1 && ytmp == 9) || (xtmp == 9 && ytmp == 1));
+            xtmp = rand.nextInt(15);
+            ytmp = rand.nextInt(15);
+        } while ((xtmp == 0 && ytmp == 14) || (xtmp == 14 && ytmp == 0));
         this.position.setLocation(xtmp, ytmp);
         if (rand.nextInt(2) == 0)
             tR = typeRessource.bois;
@@ -35,7 +35,8 @@ public class Ressource
         return this.position;
     }
 
-    public typeRessource gettR() {
+    public typeRessource gettR()
+    {
         return tR;
     }
 }

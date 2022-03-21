@@ -12,7 +12,7 @@ public class Controle extends JPanel implements MouseListener {
 		etat = e;
 		setPreferredSize(new Dimension(x, y));
 		addMouseListener(this);
-		setBackground(Color.WHITE);
+		//setBackground(Color.WHITE);
 	}
 	
 	

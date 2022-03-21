@@ -4,6 +4,7 @@ import Environnement.Ressource;
 import Environnement.typeRessource;
 import Unites.Unite;
 
+import java.awt.*;
 import java.util.ArrayList;
 
 import javax.imageio.ImageIO;
@@ -26,12 +27,24 @@ public class Affichage extends Grille{
 
 		for(int x = 0; x < plateau.length; x++){
 			for(int y = 0; y < plateau[x].length; y++){
-				this.plateau[x][y] = new Case(this, etat);
+				this.plateau[x][y] = new Case(etat);
 				ajouteElement(this.plateau[x][y]);
 			}
 		}
+		setAllRessources();
+		this.setBackground(Color.orange);
 	}
-
+	/**
+	 * Methode pour initialise toute les ressources dans chaque case en fonction des coordonnees de chaque ressources.
+	 */
+	public void setAllRessources()
+	{
+		for(Ressource r : this.etat.getListRessource())
+		{
+			System.out.println("x = "+r.getPosition().x+" "+"y = "+r.getPosition().y);
+			this.plateau[r.getPosition().x][r.getPosition().y].setRessource(r);
+		}
+	}
 /*
 	@Override
 	public void paint(Graphics g) {
@@ -40,10 +53,6 @@ public class Affichage extends Grille{
 		Graphics2D graphs = (Graphics2D) g;
 		graphs.rotate(-Math.PI / 4);
 		graphs.translate(-175, 150);
-
-
-		//MVC.Affichage des ressources
-		dessineRessource(g);
 
 		/*for(int i = 1; i <= (l.size())/10; i++) {
 			Point rot1 = l.get(0);
@@ -74,20 +83,7 @@ public class Affichage extends Grille{
 
 		}
 	}
-		public void dessineRessource (Graphics g)
-		{
-			System.out.print(this.etat.getRessource().size());
-			for (Ressource r : this.etat.getRessource()) {
-				//System.out.println(r.getPosition().x +" "+ r.getPosition().y);
-				if (r.gettR() == typeRessource.bois) {
-					g.setColor(Color.BLUE);
-				} else {
-					g.setColor(Color.CYAN);
-				}
-				g.drawOval(r.getPosition().x * this.decalage + 15, r.getPosition().y * this.decalage + 15, 5, 5);
-				g.fillOval(r.getPosition().x * this.decalage + 15, r.getPosition().y * this.decalage + 15, 5, 5);
-			}
-		}
+
 
 	public int getDecal() {
 		return decalage;
