@@ -17,7 +17,7 @@ public class Joueur {
 	public Joueur() {
 		nbBois = 100;
 		nbNourritures = 100;
-		listUnit.add(new Ouvrier(new Point(1, 9)));
+		listUnit.add(new Ouvrier(new Point(1, 1)));
 	}
 	
 	public ArrayList<Unite> getUnites() {
