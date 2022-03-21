@@ -1,13 +1,10 @@
 package MVC;
 
-import Environnement.Ressource;
-import Environnement.typeRessource;
-import Unites.Unite;
-
+import java.awt.Graphics;
 import java.util.ArrayList;
 
-import javax.imageio.ImageIO;
-import javax.swing.*;
+import Unites.Ouvrier;
+import Unites.Unite;
 
 public class Affichage extends Grille{
 	private final int hauteur = 500;
@@ -31,6 +28,15 @@ public class Affichage extends Grille{
 			}
 		}
 	}
+	
+	@Override
+	public void paint(Graphics g) {
+		for(Unite u : etat.getJoueurs().get(0).getUnites()) {
+			if(u instanceof Ouvrier) {
+				((Ouvrier) u).paintComponent(g);
+			}
+		}
+	}
 
 /*
 	@Override
@@ -40,11 +46,8 @@ public class Affichage extends Grille{
 		Graphics2D graphs = (Graphics2D) g;
 		graphs.rotate(-Math.PI / 4);
 		graphs.translate(-175, 150);
-
-
 		//MVC.Affichage des ressources
 		dessineRessource(g);
-
 		/*for(int i = 1; i <= (l.size())/10; i++) {
 			Point rot1 = l.get(0);
 			Point rot2 = l.get(l.size()-1);
@@ -59,19 +62,15 @@ public class Affichage extends Grille{
 			for (int i = 1; i <= ligne.size(); i++) {
 				Point rot1 = ligne.get(0);
 				Point rot2 = ligne.get(ligne.size() - 1);
-
 				g.drawLine(rot1.x * decalage, i * decalage, rot2.x, i * decalage);
 				g.drawLine(i * decalage, rot1.y * decalage, i * decalage, rot2.y * decalage);
 			}
-
 			//	ArrayList<Unites.Unite> aiList = etat.getAI().getUnit();
 			g.setColor(Color.RED);
-
 			for (Unite u : aiList) {
 				Point p = u.getPos();
 				g.drawOval(p.x * decalage + 7, p.y * decalage + 7, 20, 20);
 			}
-
 		}
 	}
 		public void dessineRessource (Graphics g)
@@ -88,7 +87,6 @@ public class Affichage extends Grille{
 				g.fillOval(r.getPosition().x * this.decalage + 15, r.getPosition().y * this.decalage + 15, 5, 5);
 			}
 		}
-
 	public int getDecal() {
 		return decalage;
 	}
