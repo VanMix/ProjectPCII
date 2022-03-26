@@ -28,11 +28,11 @@ Temps : 4h pour la conception, réflexion et documentation.
 
 ## Conception :  
 
-Liste des class et méthodes implementer pour les différentes fonctionnalités : 
--Toute la class Environnement.Ressource.java
--Dans la class MVC.Etat.java, les méthodes initRessource(), threadRessource() et getListRessource()
--Dans la class MVC.Affichage.java, les méthodes setAllRessource() et refreshRessources()
--Dans la class MVC.Case.java, les méthodes drawRessources(), setRessource() et removeRessource() 
+    Liste des class et méthodes implementer pour les différentes fonctionnalités : 
+        -Toute la class Environnement.Ressource.java
+        -Dans la class MVC.Etat.java, les méthodes initRessource(), threadRessource() et getListRessource()
+        -Dans la class MVC.Affichage.java, les méthodes setAllRessource() et refreshRessources()
+        -Dans la class MVC.Case.java, les méthodes drawRessources(), setRessource() et removeRessource() 
 
 La class Ressource.java contient : 
 - enum Environnement.typeRessource avec deux valeus possibles : bois et nourriture.
