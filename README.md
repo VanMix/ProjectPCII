@@ -19,14 +19,14 @@ Et entre chaque déplacement il y a 2 secondes. L'ensemble des méthodes sont si
 
 ### Fonctionnalités implémenter :
 
--Création et placement des ressources sur la grille de jeu.
--Ajout de ressources durant le deroulement du jeu.
+- Création et placement des ressources sur la grille de jeu.
+- Ajout de ressources durant le deroulement du jeu.
 
-## Plan de développement : 
+### Plan de développement : 
 
 Temps : 4h pour la conception, réflexion et documentation.
 
-## Conception :  
+### Conception :  
 
     Liste des class et méthodes implementer pour les différentes fonctionnalités : 
         -Toute la class Environnement.Ressource.java
