@@ -13,7 +13,5 @@ public class Main {
 		Affichage affichage = new Affichage(15);
 		fenetre.ajouteElement(affichage);
 		fenetre.dessineFenetre();
-        
-	   //ai.start();
 	}
 }
