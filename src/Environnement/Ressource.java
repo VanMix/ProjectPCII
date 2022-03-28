@@ -19,7 +19,7 @@ public class Ressource {
         do {
             xtmp = rand.nextInt(15);
             ytmp = rand.nextInt(15);
-        } while ((xtmp == 0 && ytmp == 14) || (xtmp == 14 && ytmp == 0));
+        } while ((xtmp > 11 || xtmp < 3) && (ytmp > 11 || ytmp < 3));
         this.position.setLocation(xtmp, ytmp);
         if (rand.nextInt(2) == 0)
             tR = typeRessource.bois;

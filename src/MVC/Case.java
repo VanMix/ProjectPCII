@@ -31,12 +31,14 @@ public class Case extends ZoneCliquable {
         if(this.occupeeRessource)
             drawRessource(g);
     }
-    // Permet de tester si une case est occupée.
-    public boolean estOccupee() { return this.occupeeRessource; }
+
+    // Permet de tester si une case est occupée par une ressource.
+    public boolean estOccupeeRessource() { return this.occupeeRessource; }
 
     /**
      * Methode pour effectuer l'affichage graphique des ressources.
      */
+
     public void drawRessource(Graphics g) {
         try {
             Image imageMiel = ImageIO.read(new File("src/Ressources/miel.jpg"));
@@ -55,5 +57,11 @@ public class Case extends ZoneCliquable {
     {
         this.ressource = r;
         this.occupeeRessource = true;
+    }
+
+    public void removeRessource()
+    {
+        this.ressource = null;
+        this.occupeeRessource = false;
     }
 }

@@ -17,26 +17,41 @@ Et entre chaque déplacement il y a 2 secondes. L'ensemble des méthodes sont si
 
 ## Partie réservée pour Arsène
 
-Fonctionnalités implémenter :
+### Fonctionnalités implémenter :
 
--création et placement des ressources sur la grille de jeu.
+- Création et placement des ressources sur la grille de jeu.
+- Ajout de ressources durant le deroulement du jeu.
 
-Plan de développement : 
+### Plan de développement : 
 
-Temps : 1 à 2h pour la conception, réflexion et documentation.
+Temps : 4h pour la conception, réflexion et documentation.
 
-Conception :  
+### Conception :  
 
-J’ai implémenté toute la class Environnement.Ressource.java, la méthode dessineRessource() dans la class MVC.Affichage.java et la méthode initRessource() dans MVC.Etat.java.
+    Liste des class et méthodes implementer pour les différentes fonctionnalités : 
+        -Toute la class Environnement.Ressource.java
+        -Dans la class MVC.Etat.java, les méthodes initRessource(), threadRessource() et getListRessource()
+        -Dans la class MVC.Affichage.java, les méthodes setAllRessource() et refreshRessources()
+        -Dans la class MVC.Case.java, les méthodes drawRessources(), setRessource() et removeRessource() 
 
-La class ressource.java contient : 
+La class Ressource.java contient : 
 - enum Environnement.typeRessource avec deux valeus possibles : bois et nourriture.
 - 2 attributs : tR pour le type de ressouce et position pour avoir la position.
-- 2 méthodes : initialiseRessource() qui va initialise une ressource avec une position aléatoire dans la grille sauf les cases (1, 9) et (9, 1) car il y aura par la suite les fourmilières, et la méthode getPosition().
+- 2 méthodes : initialiseRessource() qui va initialise une ressource avec une position aléatoire dans la grille sauf les 9 cases en bas a gauche de la grille et en haut a gauche de la grille(3 > x, x > 11 et y > 3 et y > 11) car il y aura par la suite les fourmilières et d'autres bâtiments, et la méthode getPosition().
 
-La méthode initRessource() va prendre un entier entre 1 et 10 de maniéré aléatoire , ce qui va déterminer le nombre de ressources a placer dans la grille et les ressources cree seront dans l’attribut listRessource(arrayList) de MVC.Etat.java.
+La méthode initRessource() va prendre un entier entre 20 et 50 de maniéré aléatoire , ce qui va déterminer le nombre de ressources a placer dans la grille pour le debut du jeu et les ressources crée seront dans l’attribut listRessource(arrayList) de MVC.Etat.java. De plus cette méthode va crée et placer les ressources de maniére a ce qu'il y est seulement 1 ressource par case. 
 
-La méthode dessineRessource() va prendre chaque ressource de listRessources et affiche un petit cercle rempli en bleu, si la ressource est de type « bois » sinon en cyan pour le type de ressource « nourriture ». 
+La méthode setAllRessources() va parcourir la grille "plateau"(attribut de la classe Affichage) et placer les ressources dans chaque case.
+
+La méthode threadRessource() va lancé un thread qui va ajoute des ressouces toutes les 2.5 secondes sur le plateau en prenant en compte la limite de ressources present dans le jeu qui est fixé a 60 et la régle de 1 ressources par cases.
+
+La méthode refreshRessources() va actualiser l'affichage graphique(repaint) des cases pour les ressources.
+
+La méthode drawRessource() va prendre chaque ressource de listRessources et affiche une image de bois, si la ressource est de type « bois » sinon une image de miel pour le type de ressource « nourriture ». 
+
+La méthode setRessources() va prendre une ressource en paramétre et mettre cette ressource dans l'attribut ressource(qui est a null au si aucune ressource n'est présente) et mettre le boolean occupeeRessource a true.
+
+La méthode removeRessource() va mettre l'attribut ressource a null et le boolean occupeeRessource a false. Cette méthode sera utiliser lorque une unité ouvriére va récupérer une ressource.
 
 ## Partie réservée pour Charlies
 ### Fonctionnalités implémentées au cours de ce projet

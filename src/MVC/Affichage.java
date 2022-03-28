@@ -6,12 +6,10 @@ import Unites.Unite;
 import java.awt.*;
 import java.util.ArrayList;
 
-
 public class Affichage extends Grille {
 	private final int hauteur = 500;
 	private final int largeur = 800;
 	private Etat etat = new Etat(this);
-	private final int decalage = 35;
 
 	// Attributs : taille et tableau de cases
 	private Case[][] plateau;
@@ -28,17 +26,36 @@ public class Affichage extends Grille {
 				ajouteElement(this.plateau[x][y]);
 			}
 		}
-		setAllRessources();
+		this.setAllRessources();
 		this.setBackground(Color.orange);
+		this.etat.threadRessource();
 	}
 
 	/**
 	 * Methode pour initialise toute les ressources dans chaque case en fonction des coordonnees de chaque ressources.
 	 */
+
 	public void setAllRessources() {
 		for (Ressource r : this.etat.getListRessource()) {
 			System.out.println("x = " + r.getPosition().x + " " + "y = " + r.getPosition().y);
 			this.plateau[r.getPosition().x][r.getPosition().y].setRessource(r);
+		}
+	}
+
+
+	/**
+	 * Methode pour actualiser l'affichage graphique.
+	 */
+	public void refreshReesources()
+	{
+		for(Case[] tabCase : this.plateau)
+		{
+			for(Case c : tabCase)
+			{
+				// repaint seulement les cases ou il y'a une ressource.
+				if(c.estOccupeeRessource())
+					c.repaint();
+			}
 		}
 	}
 
