@@ -1,25 +1,22 @@
 package Environnement;
 
+import javax.swing.*;
 import java.awt.*;
 import java.util.Random;
 
-public class Ressource
-{
+public class Ressource {
     private typeRessource tR;
     private final Point position = new Point();
 
-    public Ressource()
-    {
+    public Ressource() {
         initialiseRessources();
     }
 
-    public void initialiseRessources()
-    {
+    public void initialiseRessources() {
         int xtmp;
         int ytmp;
         Random rand = new Random();
-        do
-        {
+        do {
             xtmp = rand.nextInt(15);
             ytmp = rand.nextInt(15);
         } while ((xtmp > 11 || xtmp < 3) && (ytmp > 11 || ytmp < 3));
@@ -30,8 +27,7 @@ public class Ressource
             tR = typeRessource.nourriture;
     }
 
-    public Point getPosition()
-    {
+    public Point getPosition() {
         return this.position;
     }
 

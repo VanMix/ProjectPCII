@@ -1,10 +1,10 @@
 package MVC;
 
+import javax.swing.*;
 import Environnement.Ressource;
 import Environnement.typeRessource;
 
 import javax.imageio.ImageIO;
-import javax.swing.*;
 import javax.swing.border.Border;
 import java.awt.*;
 import java.io.File;
@@ -38,11 +38,11 @@ public class Case extends ZoneCliquable {
     /**
      * Methode pour effectuer l'affichage graphique des ressources.
      */
-    public void drawRessource(Graphics g)
-    {
+
+    public void drawRessource(Graphics g) {
         try {
-            Image imageMiel = ImageIO.read(new File("Ressources/miel.jpg"));
-            Image imageBois = ImageIO.read(new File("Ressources/Ressource.png"));
+            Image imageMiel = ImageIO.read(new File("src/Ressources/miel.jpg"));
+            Image imageBois = ImageIO.read(new File("src/Ressources/Ressource.png"));
 
             if (this.ressource.gettR() == typeRessource.bois)
                 g.drawImage(imageBois, 0 , 0, 474/11, 288/8, this);

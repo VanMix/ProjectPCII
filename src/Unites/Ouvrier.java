@@ -1,5 +1,7 @@
 package Unites;
 
+import java.awt.Color;
+import java.awt.Graphics;
 import java.awt.Point;
 
 public class Ouvrier extends Unite {
@@ -22,5 +24,11 @@ public class Ouvrier extends Unite {
 		return position;
 	}
 	
+	
+	public void paintComponent(Graphics g) {
+        super.paintComponent(g);
+        g.setColor(Color.CYAN);
+        g.fillOval(position.x*10, position.y*10, 15, 15);
+}
 
 }

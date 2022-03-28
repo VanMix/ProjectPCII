@@ -1,7 +1,7 @@
 # ProjectPCII 
 #### README complété au fur et à mesure par les membres du groupe.
 
-##Partie réservée pour Thomas
+## Partie réservée pour Thomas
 
 Fonctionnalités à implémenter pour la suite:
 Evènement quand un joueur clique sur une de ses unités pour pour déclencher un mécanisme qui permet d'abord son déplacement puis par la suite différentes actions selon le type de l'unité.

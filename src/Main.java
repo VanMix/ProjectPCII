@@ -1,9 +1,4 @@
-import Joueurs.AIPlayer;
-import Joueurs.Joueur;
 import MVC.*;
-
-import javax.swing.JFrame;
-
 public class Main {
 	private static int temps = 0;
 
