@@ -28,7 +28,7 @@ public class Etat {
 		Joueur j1 = new Joueur();
 		joueurs.add(j1);
 
-		initCarte();
+		//initCarte();
 		initRessources();
 	}
 
@@ -56,54 +56,79 @@ public class Etat {
 
 	}
 
+	/**
+	 * Methode pour initialiser les ressources.
+	 */
 	public void initRessources()
 	{
 		Random rand = new Random();
-		int nbRessources = rand.nextInt(20) + 10;
-		//System.out.println(nbRessources);
+		int nbRessources = rand.nextInt(51) + 20;
+		System.out.println("Nb ressources qu'on souhaite initialiser : "+nbRessources);
 		while(nbRessources != 0)
 		{
+			boolean tempB = true;
 			Ressource temp = new Ressource();
 			if(!this.listRessource.isEmpty())
 			{
 				for(Ressource res : this.listRessource)
 				{
+					//Verification si il n'y a pas de ressource deja presente dans la case où on souhaite ajouter une ressource.
 					if(temp.getPosition().x == res.getPosition().x && temp.getPosition().y == res.getPosition().y)
 					{
+						tempB = false;
 						break;
 					}
 				}
-				this.listRessource.add(temp);
-				nbRessources--;
 			}
-			else
+			if(tempB)
 			{
 				this.listRessource.add(temp);
 				nbRessources--;
 			}
 		}
-		//System.out.println(this.listRessource.size());
-		// ajout de ressource tout les 2 secs
-		/*new Thread(() ->
+		System.out.println("Nb ressources present dans la liste de ressources : "+this.listRessource.size());
+	}
+
+	/**
+	 * Thread pour ajouter des ressources toutes les 2,5 secondes.
+	 */
+	public void threadRessource()
+	{
+		new Thread(() ->
 		{
 			while(true)
 			{
-				if(this.listRessource.size() < 30)
+				boolean tempB = true;
+				Ressource r = new Ressource();
+				if(this.listRessource.size() < 60)
 				{
-					Ressource r = new Ressource();
-					this.listRessource.add(r);
+					for (Ressource res : this.listRessource)
+					{
+						if (r.getPosition().x == res.getPosition().x && r.getPosition().y == res.getPosition().y)
+						{
+							tempB = false;
+							break;
+						}
+					}
+					if(tempB)
+					{
+						this.listRessource.add(r); // ajoute de la nouvelle ressource a la liste de ressources.
+						System.out.println(this.listRessource.size());
+						System.out.println("Coordonnee de la ressource ajouter : "+r.getPosition());
+						this.aff.getPlateau()[r.getPosition().x][r.getPosition().y].setRessource(r); // ajout de la nouvelles ressource au plateau de jeu.
+						this.aff.refreshReesources(); // appel pour actualiser l'affichage graphique.
+					}
 				}
 				try
 				{
-					Thread.sleep(3000);
+					Thread.sleep(2500);
 				} catch(Exception e) {
 					e.printStackTrace();
 				}
 			}
-		}).start();*/
+		}).start();
 	}
-
-	public ArrayList<Ressource> getRessource()
+	public ArrayList<Ressource> getListRessource()
 	{
 		return this.listRessource;
 	}
@@ -118,7 +143,6 @@ public class Etat {
 			@Override
 			public void run() {
 				tempspassee++;
-
 			}
 		}, 1000, 1000);
 		if(tempspassee == tempsConstruc)
