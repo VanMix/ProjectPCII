@@ -17,7 +17,8 @@ public class Joueur {
 	public Joueur() {
 		nbBois = 100;
 		nbNourritures = 100;
-		listUnit.add(new Ouvrier(new Point(1, 1)));
+		listUnit.add(new Ouvrier(new Point(14, 0)));
+		listUnit.add(new Ouvrier(new Point(0, 14)));
 	}
 	
 	public ArrayList<Unite> getUnites() {
@@ -45,11 +46,11 @@ public class Joueur {
 	}
 
 	public void setNbBois(int bois) {
-		nbBois = bois;
+		nbBois += bois;
 	}
 
 	public void setNbNourritures(int nourriture) {
-		nbNourritures = nourriture;
+		nbNourritures += nourriture;
 	}
 
 	public ArrayList<Ouvrier> getOuvrieres(){
@@ -59,4 +60,5 @@ public class Joueur {
 				res.add((Ouvrier) unit);
 		return res;
 	}
+	
 }

@@ -1,8 +1,12 @@
 package MVC;
 
-import javax.swing.*;
-import java.awt.*;
+import java.awt.Dimension;
 import java.awt.event.MouseEvent;
+
+import javax.swing.SwingUtilities;
+
+import Unites.Ouvrier;
+import Unites.Unite;
 
 public class ZoneCliquable extends Controle {
 
@@ -21,32 +25,43 @@ public class ZoneCliquable extends Controle {
 
     public void enleveElement(){
         this.occupee = false;
-    }
+    } 
 
-    // Action à effectuer lors d'un clic gauche.
-    public void clicGauche(){
-        if (occupee) {
-            setBackground(Color.WHITE);
-            this.occupee = false;
-        } else {
-            setBackground(Color.BLACK);
-            this.occupee = true;
-        }
-    }
-
+   
     /**
      * Interfaçage entre la bibliothèque standard et les méthodes [clicGauche]
      * et [clicDroit].
      */
-    public void mouseClicked(MouseEvent e) {
-       /* if (SwingUtilities.isRightMouseButton(e)) {
-            this.clicDroit();
-        } else {
-            this.clicGauche();
-        }*/
-        return;
+ /*   public void mouseClicked(MouseEvent e) {
+        if (SwingUtilities.isRightMouseButton(e)) {
+            this.clicDroit(e);
+        }  else { 
+            this.clicGauche(e);
+        } 
     }
-    // Action à effectuer lors d'un clic droit.
-    public void clicDroit() { }
 
+    
+    public Point clicDroit(MouseEvent e) {
+   
+ /*   	Dimension dim = super.getEtat().getAff().getPlateau()[0][0].getSize();
+    	
+    	int x = e.getX()/dim.width;
+    	int y = e.getY()/dim.height;
+    	
+    	System.out.println(e.getX() + " " + e.getY());
+    	
+    	Case c = super.getEtat().getAff().getPlateau()[x][y];
+    	if(c.occupeUnite) {
+    		Unite u = c.getUnit();
+    	    
+    		if(u instanceof Ouvrier) {
+    			u.setClick();
+    		}
+    	} */
+    	
+ //   }
+    
+  //  public void clicGauche(MouseEvent e) {
+    	
+  //  } 
 }

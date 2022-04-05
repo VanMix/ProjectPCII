@@ -5,6 +5,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 public class Reine{
+	/*
     //Une Reine doit être lié à une fourmilière (qui elle même sera relié à un joueur)
     private final Fourmiliere camp;
 
@@ -37,4 +38,6 @@ public class Reine{
             tempsEcoule = 0; // remet le compteur à 0
         }
     }
+    
+    */
 }
